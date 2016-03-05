@@ -6,13 +6,10 @@ A raspberry pi connected to a thermal printer offers physical prints from a dail
 
 Here is a little video: https://twitter.com/VandalPoem/status/704377485593432065 
 
----
-
 Based on Adafruit IoT Printer, https://learn.adafruit.com/pi-thermal-printer/overview
 
 Requires printer library from Adafruit Python-Thermal-Printer, https://github.com/adafruit/Python-Thermal-Printer
 
----
 
 # Set Up
 
