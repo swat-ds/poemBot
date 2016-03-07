@@ -90,19 +90,17 @@ while(True):
     prevButtonState = buttonState   # Yes, save new state/time
     prevTime        = t
   else:                             # Button state unchanged
-    if (t - prevTime) >= holdTime:  # Button held more than 'holdTime'?
+    if (t - prevTime) >= holdTime and holdEnable:  # Button held more than 'holdTime'?
       # Yes it has.  Is the hold action as-yet untriggered?
-      if holdEnable == True:        # Yep!
-        hold()                      # Perform hold action (usu. shutdown)
-        holdEnable = False          # 1 shot...don't repeat hold action
-        tapEnable  = False          # Don't do tap action on release
+    	hold()                      # Perform hold action (usu. shutdown)
+    	holdEnable = False          # 1 shot...don't repeat hold action
+    	tapEnable  = False          # Don't do tap action on release
     elif (t - prevTime) >= tapTime: # Not holdTime.  tapTime elapsed?
       # Yes.  Debounced press or release...
-      if buttonState == True:       # Button released?
-        if tapEnable == True:       # Ignore if prior hold()
-          tap()                     # Tap triggered (button released)
-          tapEnable  = False        # Disable tap and hold
-          holdEnable = False
+      if buttonState and tapEnable: # Button released?
+        tap()                     # Tap triggered (button released)
+        tapEnable  = False        # Disable tap and hold
+        holdEnable = False
       else:                         # Button pressed
         tapEnable  = True           # Enable tap and hold actions
         holdEnable = True
