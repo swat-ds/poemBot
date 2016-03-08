@@ -13,18 +13,6 @@ Based on Adafruit IoT Printer, https://learn.adafruit.com/pi-thermal-printer/ove
 Requires printer library from Adafruit Python-Thermal-Printer, https://github.com/adafruit/Python-Thermal-Printer/blob/master/Adafruit_Thermal.py
 
 
-# Set Up
-
-After setting up and testing the python main loop and poem printing, set it to load on boot by editing rc.local:
-
-```sudo nano /etc/rc.local```
-
-Add the terminal command to start the python script before the line "exit 0":
-
-```
-cd /home/pi/Python-Thermal-Printer
-python vpodMain.py &
-```
 
 
 
