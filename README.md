@@ -12,6 +12,7 @@ Based on Adafruit IoT Printer, https://learn.adafruit.com/pi-thermal-printer/ove
 
 Requires printer library from Adafruit Python-Thermal-Printer, https://github.com/adafruit/Python-Thermal-Printer/blob/master/Adafruit_Thermal.py
 
+Stay tuned for version 2!
 
 # Set Up
 
