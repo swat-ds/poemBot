@@ -8,7 +8,7 @@
 from __future__ import print_function
 import RPi.GPIO as GPIO
 import subprocess, time, socket
-from Adafruit_Thermal import *
+from thermalPrinter import *
 
 # printer and button set up
 ledPin       = 18
