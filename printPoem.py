@@ -1,7 +1,7 @@
 #!/usr/bin/python
 
 from __future__ import print_function
-from Adafruit_Thermal import *
+from thermalPrinter import *
 import random
 
 # printer set up 
