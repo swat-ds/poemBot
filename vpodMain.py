@@ -59,7 +59,7 @@ try:
     s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
     s.connect(('8.8.8.8', 0))
     printer.println('     ')
-    printer.print('poemBot is at ' + s.getsockname()[0])
+    printer.println('poemBot is at ' + s.getsockname()[0])
     printer.feed(3)
 except:
     printer.println('     ')
