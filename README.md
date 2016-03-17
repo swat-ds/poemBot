@@ -2,7 +2,7 @@
 
 > printer + pi + python + poems. 
 
-A Raspberry Pi connected to a thermal printer offers physical prints from a daily poetry website, http://poetry.lib.uidaho.edu/
+> A Raspberry Pi connected to a thermal printer offers physical prints from a daily poetry website, http://poetry.lib.uidaho.edu/
 
 Easy to read, carry in your pocket, and share with your friends-- poems printed on receipts are fun!
 
@@ -45,7 +45,11 @@ cd /home/pi/Python-Thermal-Printer
 python vpodMainV2.py &
 ```
 
+# References
 
+UBC RAD-device, https://github.com/asistubc/RAD-device
 
+Little Box of Poems, http://www.suppertime.co.uk/blogmywiki/2012/12/pi-poems/
 
+Adafruit IoT Printer, https://learn.adafruit.com/pi-thermal-printer/overview
 
