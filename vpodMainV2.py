@@ -39,17 +39,19 @@ def printPoem():
     printer.println(wrappedTitle + "\n    by " + randPoem[2])
     printer.setSize('S')
     printer.println(wrappedPoem)
-    printer.println(' ')
+    # printer.println(' ')
     printer.writeBytes(0x1B, 0x21, 0x1)
     printer.println(wrappedBook + "\n    " + publisher)
     printer.setSize('S')
-    printer.println(' ')
+    # printer.println(' ')
     printer.justify('C')
+    printer.boldOn()
     printer.println("VPOD " + randPoem[0])
+    printer.boldOff()
     printer.println(website)
     printer.println(' ')
     printer.println(' ')
-    printer.feed(4)
+    printer.feed(3)
 
 # Called when button is briefly tapped.  
 # prints a random poem
@@ -83,6 +85,7 @@ GPIO.output(ledPin, GPIO.HIGH)
 # Load up all poems from CSV 
 # poem CSV is structured with the columns: VPODdate,title,author,poem,book
 # the poem column contains the full text of the poem with no markup, only \n 
+# the CSV is in PC437 encoding since the printer only supports this character set
 with open('VPODpoems.csv') as csvPoems:
     allPoems = list(csv.reader(csvPoems, delimiter=','))
 
