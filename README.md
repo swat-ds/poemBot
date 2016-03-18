@@ -30,7 +30,9 @@ I decided to limit the pool of poems based on number of lines and total characte
 This can be done quickly with OpenRefine by creating new columns based on poem with ```value.split("\n").length()``` and ```length(value)```,
 then adding numeric facets. Export the subset of poems data as CSV from OpenRefine. 
 
-Edit the CSV to remove the header and check the character encoding to avoid issues with Python and the printer.
+Edit the CSV with a text editor (not LibreOffice or Excel) to remove the header and check the character encoding to avoid issues with Python and the printer. 
+The adafruit thermal printer only supports the [PC 437](https://en.wikipedia.org/wiki/Code_page_437) character set.
+The current UTF-8 encoding will generate strange outputs. Convert the encoding to PC437.
 
 # Set Up
 
