@@ -10,7 +10,7 @@ Here is a little video: https://twitter.com/VandalPoem/status/704377485593432065
 
 Based on Adafruit IoT Printer, https://learn.adafruit.com/pi-thermal-printer/overview
 
-Uses printer library from Adafruit Python-Thermal-Printer, https://github.com/adafruit/Python-Thermal-Printer/blob/master/Adafruit_Thermal.py
+Uses a version of the printer library from Adafruit Python-Thermal-Printer, https://github.com/adafruit/Python-Thermal-Printer/blob/master/Adafruit_Thermal.py
 
 We currently use version 2, vpodMainV2.py
 
@@ -31,8 +31,8 @@ This can be done quickly with OpenRefine by creating new columns based on poem w
 then adding numeric facets. Export the subset of poems data as CSV from OpenRefine. 
 
 Edit the CSV with a text editor (not LibreOffice or Excel) to remove the header and check the character encoding to avoid issues with Python and the printer. 
-The adafruit thermal printer only supports the [PC 437](https://en.wikipedia.org/wiki/Code_page_437) character set.
-The current UTF-8 encoding will generate strange outputs. Convert the encoding to PC437.
+The adafruit thermal printer only supports the [CP 437](https://en.wikipedia.org/wiki/Code_page_437) character set.
+The current UTF-8 encoding will generate strange outputs. Convert the encoding to CP437.
 
 # Set Up
 
@@ -43,7 +43,7 @@ After setting up and testing the Python main loop and poem printing, set it to l
 Add the terminal command to start the python script before the line "exit 0":
 
 ```
-cd /home/pi/Python-Thermal-Printer
+cd /home/pi/poemBot
 python vpodMainV2.py &
 ```
 
