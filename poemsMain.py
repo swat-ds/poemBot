@@ -3,6 +3,7 @@
 # new script for poemBot raspberry pi + printer. 
 # originally developed to promote Vandal Poem of the Day 
 # http://poetry.lib.uidaho.edu/  
+# this version prints a selection from the Golden Treasury (1861).
 # adapted from Adafruit Python-Thermal-Printer main.py
 # https://github.com/adafruit/Python-Thermal-Printer
 # this script is designed to run on a headless Raspberry Pi connected to a thermal printer 
@@ -29,7 +30,7 @@ def printPoem():
     # poem is printed in 'S' small font, limit is 32 characters per line 
     # book and publisher are in "fontB", limit is 42 character per line 
     wrappedTitle = textwrap.fill(randPoem[1], width=32)
-    wrappedBook = textwrap.fill("    from: " + randPoem[4], width=42, subsequent_indent="    ")
+    wrappedAuthor = textwrap.fill(randPoem[2], width=32)
     wrappedPoem = ""
     for line in randPoem[3].splitlines():
         wrappedLine = textwrap.fill(line, width=32, subsequent_indent="    ")
@@ -37,18 +38,12 @@ def printPoem():
     #print the poem on the thermal printer
     printer.justify('L')
     printer.setSize('M')
-    printer.println(wrappedTitle + "\n    by " + randPoem[2])
+    printer.println(wrappedTitle)
     printer.setSize('S')
     printer.println(wrappedPoem)
-    # printer.println(' ')
+    printer.println(wrappedAuthor)
     printer.writeBytes(0x1B, 0x21, 0x1)
-    printer.println(wrappedBook)
-    printer.setSize('S')
-    # printer.println(' ')
-    printer.justify('C')
-    printer.boldOn()
-    printer.println("VPOD " + randPoem[0])
-    printer.boldOff()
+    printer.println(randPoem[4] +", " + randPoem[0] + ".")
     printer.println(' ')
     printer.println(' ')
     printer.feed(3)
@@ -83,10 +78,12 @@ GPIO.setup(buttonPin, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 GPIO.output(ledPin, GPIO.HIGH)
 
 # Load up all poems from CSV 
-# poem CSV is structured with the columns: VPODdate,title,author,poem,book
+# poem CSV is structured with the columns: number,title,author,poem,book
+# goldenTreasuryPoems.csv was parsed from the text of Project Gutenberg EBook #19221
+# http://www.gutenberg.org/ebooks/19221
 # the poem column contains the full text of the poem with no markup, only \n 
 # the CSV is in PC437 encoding since the printer only supports this character set
-with open('VPODpoems.csv') as csvPoems:
+with open('goldenTreasuryPoems.csv') as csvPoems:
     allPoems = list(csv.reader(csvPoems, delimiter=','))
 
 # Processor load is heavy at startup; 

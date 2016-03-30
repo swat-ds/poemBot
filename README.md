@@ -2,17 +2,16 @@
 
 > printer + pi + python + poems. 
 
-> A Raspberry Pi connected to a thermal printer offers physical prints from a daily poetry website, http://poetry.lib.uidaho.edu/
-
 Easy to read, carry in your pocket, and share with your friends-- poems printed on receipts are fun!
+PoemBot is a Raspberry Pi connected to a thermal printer offers physical prints from a daily poetry website, [Vandal Poem of the Day](http://poetry.lib.uidaho.edu/). 
 
 Here is a little video: https://twitter.com/VandalPoem/status/704377485593432065 
 
-Based on Adafruit IoT Printer, https://learn.adafruit.com/pi-thermal-printer/overview
+Originally based on Adafruit IoT Printer, https://learn.adafruit.com/pi-thermal-printer/overview
 
 Uses a version of the printer library from Adafruit Python-Thermal-Printer, https://github.com/adafruit/Python-Thermal-Printer/blob/master/Adafruit_Thermal.py
 
-We currently use version 2, vpodMainV2.py
+We currently use version 2, `vpodMainV2.py` in our devices. However, an example implementation is available as `poemsMain.py`. 
 
 # Prepare Poems
 
@@ -32,7 +31,30 @@ then adding numeric facets. Export the subset of poems data as CSV from OpenRefi
 
 Edit the CSV with a text editor (not LibreOffice or Excel) to remove the header and check the character encoding to avoid issues with Python and the printer. 
 The adafruit thermal printer only supports the [CP 437](https://en.wikipedia.org/wiki/Code_page_437) character set.
-The current UTF-8 encoding will generate strange outputs. Convert the encoding to CP437.
+The current UTF-8 encoding can generate strange outputs on special characters. Convert the encoding to CP437.
+
+# Case and Wiring
+
+Our physical set up mostly follows [Adafruit IoT Printer](https://learn.adafruit.com/pi-thermal-printer/overview). 
+However, to simplify construction and reuse, I replaced the t-cobbler with jumpers soldered to the components, inspired by [simonmonk's Squid](https://github.com/simonmonk/squid).
+I built cases out of 1x6 boards to give the poemBot a solid home.
+
+# Example Implementation
+
+This repository contains the original VPOD files, plus a complete example implementation using public domain poems. 
+The main loop is `poemsMain.py` which loads poems to print from `goldenTreasuryPoems.csv`.
+I created the poem CSV following a similar method as with VPOD using [OpenRefine](https://github.com/OpenRefine/OpenRefine) to parse the [HTML text](http://www.gutenberg.org/ebooks/19221) from Project Gutenberg.
+Since there is no markup other than `<pre>` tags, parsing was mostly achieved using regular expressions.
+I selected approximately 100 poems less than 20 lines in length. 
+The CSV has the columns: number,title,author,poem,book. Number is the number given in the Golden Treasury.  
+
+> THE GOLDEN TREASURY
+> Of the best Songs and Lyrical Pieces
+> In the English Language
+> Selected by Francis Turner Palgrave 
+> 1861
+> [Project Gutenberg EBook #19221](http://www.gutenberg.org/ebooks/19221)
+
 
 # Set Up
 
@@ -44,7 +66,7 @@ Add the terminal command to start the python script before the line "exit 0":
 
 ```
 cd /home/pi/poemBot
-python vpodMainV2.py &
+python poemsMain.py &
 ```
 
 # References
