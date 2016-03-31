@@ -40,6 +40,8 @@ Our physical set up mostly follows [Adafruit IoT Printer](https://learn.adafruit
 However, to simplify construction and reuse, I replaced the t-cobbler with jumpers soldered to the components, inspired by [simonmonk's Squid](https://github.com/simonmonk/squid).
 I built cases out of 1x6 boards to give the poemBot a solid home.
 
+![poemBot2](https://github.com/evanwill/poemBot/raw/master/poemBot2.JPG)
+
 # Example Implementation
 
 This repository contains the original VPOD files, plus a complete example implementation using public domain poems. 
