@@ -1,8 +1,9 @@
 #!/usr/bin/python
 
-# new script for VPOD poemBot Printer
+# VPOD poemBot Printer
+# see http://poetry.lib.uidaho.edu/
 # must be run as sudo 
-# modified from Adafruit Python-Thermal-Printer main.py
+# adapted from Adafruit Python-Thermal-Printer main.py
 # https://github.com/adafruit/Python-Thermal-Printer
 
 from __future__ import print_function

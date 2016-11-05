@@ -1,6 +1,6 @@
 #!/usr/bin/python
 
-# new script for Vandal Poem of the Day poemBot Printer V3. 
+# Vandal Poem of the Day poemBot Printer V3. 
 # see http://poetry.lib.uidaho.edu/  
 # adapted from Adafruit Python-Thermal-Printer main.py
 # https://github.com/adafruit/Python-Thermal-Printer
@@ -9,7 +9,7 @@
 
 from __future__ import print_function
 import RPi.GPIO as GPIO
-import subprocess, time, socket, csv, textwrap, random
+import subprocess, time, csv, textwrap, random
 from thermalPrinter import *
 
 # printer and button set up
@@ -49,6 +49,7 @@ def printPoem():
     printer.boldOn()
     printer.println("VPOD " + randPoem[0])
     printer.boldOff()
+    printer.println("A new poem, daily:")
     printer.println("poetry.lib.uidaho.edu")
     printer.println(' ')
     printer.println('#DLFforum 2016')
@@ -98,20 +99,8 @@ with open('VPOD_22l_800char.csv') as csvPoems:
 # stalling during greeting.
 time.sleep(30)
 
-# Show IP address (if network is available)
-# add blank println because printer adds some test characters when starting up
-try:
-    s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-    s.connect(('8.8.8.8', 0))
-    printer.println('     ')
-    printer.println('poemBot is at ' + s.getsockname()[0])
-    printer.feed(3)
-except:
-    printer.println('     ')
-    printer.println('poemBot is not connected.')
-    printer.feed(3)
-
 # Print greeting
+printer.println('     ')
 printer.println('Hello!')
 printer.println('Ready to print VPOD 15-17.')
 printer.feed(3)

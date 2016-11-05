@@ -1,6 +1,6 @@
 #!/usr/bin/python
 # prints random poem from collection 
-# designed for headless Raspberry Pi connected to thermal printer 
+# designed for headless Raspberry Pi connected to thermal reciept printer 
 # called from a main script when print button is pressed
 
 from __future__ import print_function

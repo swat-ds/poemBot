@@ -6,12 +6,12 @@
 # this version prints a selection education quotes to celebrate opening of UIdaho Gary Strong Curriculum Center http://www.lib.uidaho.edu/services/curriculumcenter.html
 # originally adapted from Adafruit Python-Thermal-Printer main.py
 # https://github.com/adafruit/Python-Thermal-Printer
-# this script is designed to run on a headless Raspberry Pi connected to a thermal printer 
+# designed to run on a headless Raspberry Pi connected to a thermal printer 
 # must be run as sudo 
 
 from __future__ import print_function
 import RPi.GPIO as GPIO
-import subprocess, time, socket, csv, textwrap, random
+import subprocess, time, csv, textwrap, random
 from thermalPrinter import *
 
 # printer and button set up
@@ -96,19 +96,6 @@ with open('educationquotes.csv') as csvPoems:
 # Processor load is heavy at startup; 
 # this delays starting the loop for a bit 
 time.sleep(30)
-
-# Print IP address if Pi connects to a network 
-# added blank println because printer adds some test characters when starting up
-try:
-    s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-    s.connect(('8.8.8.8', 0))
-    printer.println('     ')
-    printer.println('poemBot is at ' + s.getsockname()[0])
-    printer.feed(3)
-except:
-    printer.println('     ')
-    printer.println('poemBot is not connected.')
-    printer.feed(3)
 
 # Print greeting
 printer.println('Hello!')

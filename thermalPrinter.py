@@ -1,4 +1,5 @@
 # slightly modified Adafruit Thermal printer library
+# see https://github.com/adafruit/Python-Thermal-Printer
 # removed legacy code left in for compatability with Arduino 
 # to do: add "font B"
 

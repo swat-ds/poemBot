@@ -1,9 +1,10 @@
 #!/usr/bin/python
 
-# new script for poemBot raspberry pi + printer. 
+# script for poemBot raspberry pi 2 + printer. 
 # originally developed to promote Vandal Poem of the Day 
 # http://poetry.lib.uidaho.edu/  
-# this version prints a selection from the Golden Treasury (1861).
+# this version prints a selection from the Golden Treasury (1861),
+# http://www.gutenberg.org/ebooks/19221
 # adapted from Adafruit Python-Thermal-Printer main.py
 # https://github.com/adafruit/Python-Thermal-Printer
 # this script is designed to run on a headless Raspberry Pi connected to a thermal printer 
@@ -105,7 +106,7 @@ except:
 
 # Print greeting
 printer.println('Hello!')
-printer.println('Ready to print poems.')
+printer.println('Ready to print Golden Treasury poems.')
 printer.feed(3)
 GPIO.output(ledPin, GPIO.LOW)
 

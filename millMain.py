@@ -6,11 +6,11 @@
 # https://github.com/adafruit/Python-Thermal-Printer
 # this script is designed to run on a headless Raspberry Pi connected to a thermal printer 
 # must be run as sudo 
-# note on image printing: 384 pixel max
+# note on image printing: 384 pixel max. 
 
 from __future__ import print_function
 import RPi.GPIO as GPIO
-import subprocess, time, socket, Image
+import subprocess, time, Image
 from thermalPrinter import *
 
 # printer and button set up
@@ -83,19 +83,6 @@ GPIO.output(ledPin, GPIO.HIGH)
 # Processor load is heavy at startup; wait a moment to avoid
 # stalling during greeting.
 time.sleep(30)
-
-# Show IP address (if network is available)
-# added blank println because printer adds some test characters when starting up
-try:
-    s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-    s.connect(('8.8.8.8', 0))
-    printer.println('     ')
-    printer.println('poemBot is at ' + s.getsockname()[0])
-    printer.feed(3)
-except:
-    printer.println('     ')
-    printer.println('poemBot is not connected.')
-    printer.feed(3)
 
 # Print greeting
 printer.println('Hello!')

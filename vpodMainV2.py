@@ -1,6 +1,6 @@
 #!/usr/bin/python
 
-# new script for Vandal Poem of the Day poemBot Printer V2. 
+# Vandal Poem of the Day poemBot Printer V2. 
 # see http://poetry.lib.uidaho.edu/  
 # adapted from Adafruit Python-Thermal-Printer main.py
 # https://github.com/adafruit/Python-Thermal-Printer

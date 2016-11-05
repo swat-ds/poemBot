@@ -1,6 +1,6 @@
 #!/usr/bin/python
 
-# new script to welcome 4H students to UIdaho Library 
+# poemBot script to welcome 4H students to UIdaho Library 
 # 4H pledge, see http://4-h.org/about/what-is-4-h/4-h-pledge/ 
 # based on Vandal Poem of the Day poemBot Printer V2. 
 # see http://poetry.lib.uidaho.edu/  
@@ -11,7 +11,7 @@
 
 from __future__ import print_function
 import RPi.GPIO as GPIO
-import subprocess, time, socket, Image
+import subprocess, time, Image
 from thermalPrinter import *
 
 # printer and button set up
@@ -85,22 +85,9 @@ GPIO.output(ledPin, GPIO.HIGH)
 # stalling during greeting.
 time.sleep(30)
 
-# Show IP address (if network is available)
-# added blank println because printer adds some test characters when starting up
-try:
-    s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-    s.connect(('8.8.8.8', 0))
-    printer.println('     ')
-    printer.println('poemBot is at ' + s.getsockname()[0])
-    printer.feed(3)
-except:
-    printer.println('     ')
-    printer.println('poemBot is not connected.')
-    printer.feed(3)
-
 # Print greeting
 printer.println('Hello!')
-printer.println('Ready to print stuff.')
+printer.println('Ready to print 4H.')
 printer.feed(3)
 GPIO.output(ledPin, GPIO.LOW)
 
