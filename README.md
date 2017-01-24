@@ -9,6 +9,8 @@ In addition to printing poems, poemBot does other fun stuff. It goes to conferen
 
 Here is a little video of the earliest prototype: https://twitter.com/VandalPoem/status/704377485593432065 
 
+And here are slides from a presentation at DLF Forum 2016: https://osf.io/wub5g/
+
 Originally based on [Adafruit IoT Printer](https://learn.adafruit.com/pi-thermal-printer/overview), poemBot uses a version of the printer library from Adafruit [Python-Thermal-Printer](https://github.com/adafruit/Python-Thermal-Printer/blob/master/Adafruit_Thermal.py).
 
 A full example implementation is available as `poemsMain.py` using public domain poems. 
