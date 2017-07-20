@@ -9,6 +9,8 @@ In addition to printing poems, poemBot does other fun stuff. It goes to conferen
 
 Here is a little video of the earliest prototype: https://twitter.com/VandalPoem/status/704377485593432065 
 
+And here are slides from a presentation at DLF Forum 2016: https://osf.io/wub5g/
+
 Originally based on [Adafruit IoT Printer](https://learn.adafruit.com/pi-thermal-printer/overview), poemBot uses a version of the printer library from Adafruit [Python-Thermal-Printer](https://github.com/adafruit/Python-Thermal-Printer/blob/master/Adafruit_Thermal.py).
 
 A full example implementation is available as `poemsMain.py` using public domain poems. 
@@ -16,17 +18,18 @@ A full example implementation is available as `poemsMain.py` using public domain
 ## Case and Wiring
 
 Our physical set up mostly follows [Adafruit IoT Printer](https://learn.adafruit.com/pi-thermal-printer/overview). 
-However, to simplify construction and reuse, I replaced the t-cobbler with jumpers soldered to the components, inspired by [simonmonk's Squid](https://github.com/simonmonk/squid). This makes it easy to assemble, modify, and demo.
+However, to simplify construction and reuse, I replaced the t-cobbler with jumpers soldered to the components, inspired by [simonmonk's Squid](https://github.com/simonmonk/squid). This makes it easy to assemble, modify, and demo. 
 
-![squid button](squid2.JPG)
+![squid button](images/squid2.JPG)
 
 I built cases out of 1x6 boards to give the poemBot a solid home.
 
-![poemBot wooden case](poemBot3.JPG)
+![poemBot wooden case](images/poemBot3.JPG)
 
+Simplify set up, the basic GPIO pin connections are marked on a leaf `poembot_leaf.png` or printable `poembot_leaf.pdf`, based on [simonmonk's Raspberry Leaf](http://www.doctormonk.com/2013/02/raspberry-pi-and-breadboard-raspberry.html) concept.
 Here's what it looks like inside:
 
-![poemBot insides](poemBot_inside.JPG)
+![poemBot insides](images/poemBot_inside.JPG)
 
 ## Example Implementation
 
