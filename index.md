@@ -7,9 +7,9 @@ Easy to read, carry in your pocket, and share with your friends: poems printed o
 PoemBot is a [Raspberry Pi](https://www.raspberrypi.org/) connected to a [thermal receipt printer](https://www.adafruit.com/products/597) offering physical prints from a daily poetry website at the touch of a button. It was developed to help promote the [Vandal Poem of the Day](http://poetry.lib.uidaho.edu/) project which seeks to bring relevant contemporary poetry to University of Idaho and the broader Idaho community.
 In addition to printing poems, poemBot does other fun stuff. It goes to conferences, attends poetry readings, creates contact cards for the library, and prints stuff for special events! 
 
-Here is a little video of the earliest prototype: https://twitter.com/VandalPoem/status/704377485593432065 
+Here is a little video of the earliest prototype: <https://twitter.com/VandalPoem/status/704377485593432065>
 
-And here are slides from a presentation at DLF Forum 2016: https://osf.io/wub5g/
+And here are slides from a presentation at DLF Forum 2016: <https://osf.io/wub5g/>
 
 Originally based on [Adafruit IoT Printer](https://learn.adafruit.com/pi-thermal-printer/overview), poemBot uses a version of the printer library from Adafruit [Python-Thermal-Printer](https://github.com/adafruit/Python-Thermal-Printer/blob/master/Adafruit_Thermal.py).
 
@@ -26,7 +26,7 @@ I built cases out of 1x6 boards to give the poemBot a solid home.
 
 ![poemBot wooden case](images/poemBot3.JPG)
 
-Simplify set up, the basic GPIO pin connections are marked on a leaf `poembot_leaf.png` or printable `poembot_leaf.pdf`, based on [simonmonk's Raspberry Leaf](http://www.doctormonk.com/2013/02/raspberry-pi-and-breadboard-raspberry.html) concept.
+Simplify set up, the basic GPIO pin connections are marked on a leaf [poembot_leaf.png](poembot_leaf.png) or printable [poembot_leaf.pdf](poembot_leaf.pdf), based on [simonmonk's Raspberry Leaf](http://www.doctormonk.com/2013/02/raspberry-pi-and-breadboard-raspberry.html) concept.
 Here's what it looks like inside:
 
 ![poemBot insides](images/poemBot_inside.JPG)
@@ -85,9 +85,9 @@ python poemsMain.py &
 
 ## References
 
-UBC RAD-device, https://github.com/asistubc/RAD-device
+UBC RAD-device, <https://github.com/asistubc/RAD-device>
 
-Little Box of Poems, http://www.suppertime.co.uk/blogmywiki/2012/12/pi-poems/
+Little Box of Poems, <http://www.suppertime.co.uk/blogmywiki/2012/12/pi-poems/>
 
-Adafruit IoT Printer, https://learn.adafruit.com/pi-thermal-printer/overview
+Adafruit IoT Printer, <https://learn.adafruit.com/pi-thermal-printer/overview>
 
