@@ -17,8 +17,9 @@ A full example implementation is available as `poemsMain.py` using public domain
 
 ## Case and Wiring
 
-Our physical set up mostly follows [Adafruit IoT Printer](https://learn.adafruit.com/pi-thermal-printer/overview). 
-However, to simplify construction and reuse, I replaced the t-cobbler with jumpers soldered to the components, inspired by [simonmonk's Squid](https://github.com/simonmonk/squid). This makes it easy to assemble, modify, and demo. 
+Our wiring mostly follows [Adafruit IoT Printer](https://learn.adafruit.com/pi-thermal-printer/overview). 
+However, to simplify construction and reuse, I replaced the t-cobbler with jumpers soldered to the components, inspired by [simonmonk's Squid](https://github.com/simonmonk/squid). 
+This makes it easy to assemble, modify, and demo. 
 
 ![squid button](images/squid2.JPG)
 
@@ -26,10 +27,15 @@ I built cases out of 1x6 boards to give the poemBot a solid home.
 
 ![poemBot wooden case](images/poemBot3.JPG)
 
-Simplify set up, the basic GPIO pin connections are marked on a leaf `poembot_leaf.png` or printable `poembot_leaf.pdf`, based on [simonmonk's Raspberry Leaf](http://www.doctormonk.com/2013/02/raspberry-pi-and-breadboard-raspberry.html) concept.
+To simplify set up, the basic GPIO pin connections are marked on a leaf [poembot_leaf.png](poembot_leaf.png) or printable [poembot_leaf.pdf](poembot_leaf.pdf), based on [simonmonk's Raspberry Leaf](http://www.doctormonk.com/2013/02/raspberry-pi-and-breadboard-raspberry.html) concept.
+
 Here's what it looks like inside:
 
 ![poemBot insides](images/poemBot_inside.JPG)
+
+Here is another version that shows off its insides all the time:
+
+![poemBot open case](images/poemBot5.JPG)
 
 ## Example Implementation
 
@@ -70,11 +76,13 @@ Convert the encoding to CP437.
 
 ## Set Up
 
-The Raspberry Pi needs to be set up to run headless. 
+The Raspberry Pi needs to be set up to run headless (I used the official [Raspbian](https://www.raspberrypi.org/downloads/raspbian/) minimal image).
 SSH in for set up and testing. 
 After testing the Python main loop and poem printing, set it to load on boot by editing rc.local:
 
-```sudo nano /etc/rc.local```
+```
+sudo nano /etc/rc.local
+```
 
 Add the terminal command to start the python script before the line "exit 0":
 
@@ -83,6 +91,10 @@ cd /home/pi/poemBot
 python poemsMain.py &
 ```
 
+Now, when you plug in the poemBot, it starts up after a minute ready to print poems. 
+When you press the button, it prints a poem. 
+When you hold the button for a few seconds, it will shutdown.
+
 ## References
 
 UBC RAD-device, https://github.com/asistubc/RAD-device
@@ -90,4 +102,3 @@ UBC RAD-device, https://github.com/asistubc/RAD-device
 Little Box of Poems, http://www.suppertime.co.uk/blogmywiki/2012/12/pi-poems/
 
 Adafruit IoT Printer, https://learn.adafruit.com/pi-thermal-printer/overview
-
