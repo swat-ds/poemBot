@@ -54,12 +54,14 @@ def printPoem():
     printer.writeBytes(0x1B, 0x21, 0x1)
 
     if randPoem[4]:
-      printer.println(randPoem[4] +", " + randPoem[0] + ".")
+      printer.println(randPoem[4])
     if randPoem[5]:
-      printer.println(randPoem[5] +", " + randPoem[0] + ".")
+      printer.println(randPoem[5])
     printer.println(' ')
     printer.println(' ')
     printer.println(randPoem[0] + " of " + len(allPoems))
+    printer.println(' ')
+    printer.println(' ')
     printer.feed(3)
 
 # Called when button is briefly tapped.  
@@ -123,7 +125,7 @@ except:
 
 # Print greeting
 printer.println('Hello!')
-printer.println('Ready to print Golden Treasury poems.')
+printer.println('Ready to print 2018 National Poetry Month Submissions.')
 printer.feed(3)
 GPIO.output(ledPin, GPIO.LOW)
 
