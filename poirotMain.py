@@ -59,7 +59,7 @@ def printPoem():
       printer.println(randPoem[5])
     printer.println(' ')
     printer.println(' ')
-    printer.println(randPoem[0] + " of " + len(allPoems))
+    printer.println(randPoem[0] + " of " + str(len(allPoems)))
     printer.println(' ')
     printer.println(' ')
     printer.feed(3)
