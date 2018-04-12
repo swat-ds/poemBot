@@ -22,7 +22,8 @@ holdTime     = 2     # Duration for button hold (shutdown)
 tapTime      = 0.01  # Debounce time for button taps
 printer      = Adafruit_Thermal("/dev/ttyAMA0", 19200, timeout=5)
 
-# Print random poem, called on tap 
+# Print random poem, called on tap
+# updates citation line at end
 def printPoem():
     #get a random poem
     randPoem = random.choice(allPoems)
@@ -33,9 +34,16 @@ def printPoem():
     wrappedTitle = textwrap.fill(randPoem[1], width=32)
     wrappedAuthor = textwrap.fill(randPoem[2], width=32)
     wrappedPoem = ""
-    for line in randPoem[3].splitlines():
-        wrappedLine = textwrap.fill(line, width=32, subsequent_indent="    ")
-        wrappedPoem += wrappedLine +"\n"
+
+    lines = randPoem[3].splitlines();
+
+    if len(lines) > 1:
+      for line in randPoem[3].splitlines():
+          wrappedLine = textwrap.fill(line, width=32, subsequent_indent="    ")
+          wrappedPoem += wrappedLine +"\n"
+    else:
+      wrappedLine = textwrap.fill(line, width=32)
+      wrappedPoem += wrappedLine +"\n"
     #print the poem on the thermal printer
     printer.justify('L')
     printer.setSize('M')
@@ -44,9 +52,14 @@ def printPoem():
     printer.println(wrappedPoem)
     printer.println(wrappedAuthor)
     printer.writeBytes(0x1B, 0x21, 0x1)
-    printer.println(randPoem[4] +", " + randPoem[0] + ".")
+
+    if randPoem[4]:
+      printer.println(randPoem[4] +", " + randPoem[0] + ".")
+    if randPoem[5]:
+      printer.println(randPoem[5] +", " + randPoem[0] + ".")
     printer.println(' ')
     printer.println(' ')
+    printer.println(randPoem[0] + " of " + len(allPoems))
     printer.feed(3)
 
 # Called when button is briefly tapped.  
@@ -84,8 +97,12 @@ GPIO.output(ledPin, GPIO.HIGH)
 # http://www.gutenberg.org/ebooks/19221
 # the poem column contains the full text of the poem with no markup, only \n 
 # the CSV is in PC437 encoding since the printer only supports this character set
-with open('goldenTreasuryPoems.csv') as csvPoems:
+# with open('goldenTreasuryPoems.csv') as csvPoems:
+#     allPoems = list(csv.reader(csvPoems, delimiter=','))
+with open('2018-submissions.csv') as csvPoems:
     allPoems = list(csv.reader(csvPoems, delimiter=','))
+
+
 
 # Processor load is heavy at startup; 
 # this delays starting the loop for a bit 
