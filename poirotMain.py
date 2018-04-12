@@ -42,8 +42,9 @@ def printPoem():
           wrappedLine = textwrap.fill(line, width=32, subsequent_indent="    ")
           wrappedPoem += wrappedLine +"\n"
     else:
-      wrappedLine = textwrap.fill(line, width=32)
+      wrappedLine = textwrap.fill(lines[0], width=32)
       wrappedPoem += wrappedLine +"\n"
+
     #print the poem on the thermal printer
     printer.justify('L')
     printer.setSize('M')
