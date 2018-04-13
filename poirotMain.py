@@ -12,7 +12,7 @@
 
 from __future__ import print_function
 import RPi.GPIO as GPIO
-import subprocess, time, socket, csv, 
+import subprocess, time, socket, csv,\ 
        textwrap, random, datetime
 from thermalPrinter import *
 
