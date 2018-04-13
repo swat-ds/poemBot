@@ -37,6 +37,7 @@ def printPoem():
 
     lines = randPoem[3].splitlines();
 
+    # if a prose poem, don't indent
     if len(lines) > 1:
       for line in randPoem[3].splitlines():
           wrappedLine = textwrap.fill(line, width=32, subsequent_indent="    ")
@@ -54,16 +55,22 @@ def printPoem():
     printer.println(wrappedAuthor)
     printer.writeBytes(0x1B, 0x21, 0x1)
 
+    # if source or note values
     if randPoem[4]:
       printer.println(randPoem[4])
     if randPoem[5]:
       printer.println(randPoem[5])
+
     printer.println(' ')
     printer.println(' ')
     printer.println(randPoem[0] + " of " + str(len(allPoems)))
     printer.println(' ')
     printer.println(' ')
     printer.feed(3)
+
+    # writes datestamp to log
+    with open('log','a') as log:
+      log.write(str(datetime.datetime.now()) + '\n')
 
 # Called when button is briefly tapped.  
 # prints a random poem
