@@ -128,7 +128,7 @@ def printPoem():
 def tap():
   GPIO.output(ledPin, GPIO.HIGH)  # LED on while working
   # printPoem()
-  printCycle()
+  printCycle(3)
   GPIO.output(ledPin, GPIO.LOW)
 
 # Called when button is held down.  
