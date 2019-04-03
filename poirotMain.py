@@ -110,7 +110,7 @@ GPIO.output(ledPin, GPIO.HIGH)
 # the CSV is in PC437 encoding since the printer only supports this character set
 # with open('goldenTreasuryPoems.csv') as csvPoems:
 #     allPoems = list(csv.reader(csvPoems, delimiter=','))
-with open('2018-submissions.csv') as csvPoems:
+with open('2019-poeminyourpocket.csv') as csvPoems:
     allPoems = list(csv.reader(csvPoems, delimiter=','))
 
 
