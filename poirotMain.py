@@ -134,7 +134,8 @@ except:
 
 # Print greeting
 printer.println('Hello!')
-printer.println('Ready to print 2018 National Poetry Month Submissions.')
+printer.println('Ready to print 2019 National Poetry Month poems')
+printer.println('courtesy of Academy of American Poets Poem-in-Your-Pocket Day')
 printer.feed(3)
 GPIO.output(ledPin, GPIO.LOW)
 
